@@ -1,6 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# Dependency directories
 /node_modules
 /.pnp
 .pnp.*
@@ -9,33 +7,77 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+jspm_packages/
+bower_components/
 
-# testing
-/coverage
-
-# next.js
+# Output / Build
 /.next/
-/out/
+out/
+build/
+dist/
+.nuxt
+.nuxt/
+.cache/
+.parcel-cache
+.vuepress/dist
+.temp
+.temp/
+.docusaurus
+.serverless/
+.fusebox/
+.dynamodb/
+.web_modules
+.rts2_cache_*/
+.rpt2_cache/
 
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Diagnostic logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# Reports
+report.*.json
+
+# Runtime
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# System
+.DS_Store
+*.tgz
+*.pem
+
+# VS Code
+.vscode-test
+
+# Environment files
 .env*
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
 
-# vercel
-.vercel
-
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Lint/Cache
+.nyc_output
+.eslintcache
+.stylelintcache
+
+# Yarn
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# TernJS
+.tern-port
