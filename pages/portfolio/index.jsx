@@ -2,13 +2,13 @@ import fs from "fs";
 import path from "path";
 
 export async function getStaticProps() {
-  const portfolioDir = path.join(process.cwd(), "data/portfolio");
+  const portfolioDir = path.join(process.cwd(), "data", "portfolio");
   const files = fs.readdirSync(portfolioDir);
   const projects = files.map((file) => {
-    const data = JSON.parse(fs.readFileSync(path.join(portfolioDir, file), "utf-8"));
-    return { slug: data.slug, title: data.title, summary: data.summary };
+    const filePath = path.join(portfolioDir, file);
+    const content = fs.readFileSync(filePath, "utf-8");
+    return JSON.parse(content);
   });
-
   return { props: { projects } };
 }
 
@@ -21,12 +21,16 @@ export default function PortfolioPage({ projects }) {
           {projects.map((p) => (
             <div key={p.slug} className="p-6 bg-white rounded-lg shadow">
               <h2 className="text-xl font-semibold mb-2">{p.title}</h2>
-              <p className="text-gray-600 mb-4">{p.summary}</p>
-              <a href={`/portfolio/${p.slug}`} className="text-blue-600 hover:underline">
-                View case study →
-              </a>
-            </div>
-          ))}
+                <p className="text-gray-700 mb-4">{p.summary}</p>
+                <a
+                  href={`/portfolio/${p.slug}`}
+                  className="text-blue-600 hover:underline focus-visible:underline focus-visible:outline-none"
+                  aria-label={`View case study for ${p.title}`}
+                >
+                  View case study →
+                </a>
+              </div>
+            ))}
         </div>
       </div>
     </section>

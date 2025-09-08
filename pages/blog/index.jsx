@@ -8,15 +8,16 @@ export default function BlogPage() {
         {posts.map((post) => (
           <article key={post.slug} className="mb-8">
             <h2 className="text-2xl font-semibold">{post.title}</h2>
-            <p className="text-gray-600">{post.excerpt}</p>
-            <a
-              href={`/blog/${post.slug}`}
-              className="text-blue-600 hover:underline"
-            >
-              Read more →
-            </a>
-          </article>
-        ))}
+              <p className="text-gray-700">{post.excerpt}</p>
+              <a
+                href={`/blog/${post.slug}`}
+                className="text-blue-600 hover:underline focus-visible:underline focus-visible:outline-none"
+                aria-label={`Read more about ${post.title}`}
+              >
+                Read more →
+              </a>
+            </article>
+          ))}
       </div>
     </section>
   );

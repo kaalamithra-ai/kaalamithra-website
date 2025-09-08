@@ -28,13 +28,14 @@ export default function JobDetail() {
       <div className="max-w-3xl mx-auto px-6">
         <h1 className="text-3xl font-bold mb-6">{job.title}</h1>
         <p className="text-gray-700 mb-8">{job.description}</p>
-        <a
-          href="/contact"
-          className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-        >
-          Apply Now
-        </a>
-      </div>
-    </section>
+          <a
+            href="/contact"
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+            aria-label={`Apply for ${job.title}`}
+          >
+            Apply Now
+          </a>
+        </div>
+      </section>
   );
 }

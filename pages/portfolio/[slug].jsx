@@ -29,12 +29,12 @@ export default function PortfolioDetail() {
 
   if (!project) {
     return (
-      <div className="max-w-3xl mx-auto py-20 text-center">
-        <h1 className="text-2xl font-bold mb-4">Case study not found</h1>
-        <p className="text-gray-600">Please check the URL or return to the portfolio page.</p>
-      </div>
-    );
-  }
+        <div className="max-w-3xl mx-auto py-20 text-center">
+          <h1 className="text-2xl font-bold mb-4">Case study not found</h1>
+          <p className="text-gray-700">Please check the URL or return to the portfolio page.</p>
+        </div>
+      );
+    }
 
   return (
     <section className="py-20 bg-white">
@@ -42,18 +42,19 @@ export default function PortfolioDetail() {
         <h1 className="text-4xl font-bold mb-6">{project.title}</h1>
         <p className="text-gray-700 text-lg mb-8">{project.description}</p>
 
-        <div className="bg-gray-50 p-6 rounded-xl shadow">
-          <h2 className="text-2xl font-semibold mb-2">Results</h2>
-          <p className="text-gray-600">{project.result}</p>
-        </div>
+          <div className="bg-gray-50 p-6 rounded-xl shadow">
+            <h2 className="text-2xl font-semibold mb-2">Results</h2>
+            <p className="text-gray-700">{project.result}</p>
+          </div>
 
-        <a
-          href="/contact"
-          className="inline-block mt-8 px-8 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
-        >
-          Start your project
-        </a>
-      </div>
-    </section>
+          <a
+            href="/contact"
+            className="inline-block mt-8 px-8 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+            aria-label="Start your project link"
+          >
+            Start your project
+          </a>
+        </div>
+      </section>
   );
 }

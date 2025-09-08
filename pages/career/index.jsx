@@ -20,14 +20,15 @@ export default function CareersPage() {
             <div key={job.slug} className="p-6 border rounded-lg">
               <h2 className="text-2xl font-semibold">{job.title}</h2>
               <p className="text-gray-500">{job.location}</p>
-              <Link
-                href={`/career/${job.slug}`}
-                className="text-blue-600 font-medium hover:underline"
-              >
-                View details →
-              </Link>
-            </div>
-          ))}
+                <Link
+                  href={`/career/${job.slug}`}
+                  className="text-blue-600 font-medium hover:underline focus-visible:underline focus-visible:outline-none"
+                  aria-label={`View details about ${job.title}`}
+                >
+                  View details →
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
     </section>

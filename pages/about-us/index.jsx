@@ -8,10 +8,10 @@ export default function AboutPage() {
           for businesses and startups. From product design to development and automation,
           we help companies turn ideas into impactful digital products.
         </p>
-        <p className="text-gray-600">
-          Our team combines expertise in full-stack development, artificial intelligence,
-          UI/UX design, and growth strategy to ensure your business is always future-ready.
-        </p>
+          <p className="text-gray-700">
+            Our team combines expertise in full-stack development, artificial intelligence,
+            UI/UX design, and growth strategy to ensure your business is always future-ready.
+          </p>
       </div>
     </section>
   );

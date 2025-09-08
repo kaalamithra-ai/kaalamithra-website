@@ -13,10 +13,11 @@ export default function ServicesPage() {
               className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
             >
               <h2 className="text-xl font-semibold mb-2">{service.title}</h2>
-              <p className="text-gray-600 mb-4">{service.description}</p>
+              <p className="text-gray-700 mb-4">{service.description}</p>
               <Link
                 href={`/services/${service.slug}`}
-                className="text-blue-600 font-medium hover:underline"
+                className="text-blue-600 font-medium hover:underline focus-visible:underline focus-visible:outline-none"
+                aria-label={`Learn more about ${service.title}`}
               >
                 Learn more →
               </Link>
