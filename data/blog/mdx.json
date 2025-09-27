@@ -4,6 +4,7 @@
     "title": "The Future of AI in Business",
     "date": "2025-08-12",
     "excerpt": "How AI is transforming industries and what it means for your company.",
+    "image": "/images/og-default.png",
     "content": "Artificial Intelligence is reshaping industries. From automation to predictive analytics..."
   },
   {
@@ -11,6 +12,7 @@
     "title": "Building Scalable Web Apps",
     "date": "2025-07-28",
     "excerpt": "Best practices for building apps that scale to millions of users.",
+    "image": "/images/og-default.png",
     "content": "Scalability isn't just about servers — it's about clean code, modular design, and CI/CD pipelines..."
   }
 ]

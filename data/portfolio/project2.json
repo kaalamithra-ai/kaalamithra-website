@@ -1,5 +1,8 @@
 {
   "slug": "project-2",
   "title": "E-commerce Website",
-  "summary": "Developed a scalable e-commerce solution with Next.js and Tailwind."
+  "summary": "Developed a scalable e-commerce solution with Next.js and Tailwind.",
+  "image": "/images/og-default.png",
+  "description": "We launched a headless commerce experience with personalized product recommendations and lightning-fast checkout.",
+  "result": "Drove a 45% lift in conversion rate while supporting major seasonal traffic spikes without downtime."
 }

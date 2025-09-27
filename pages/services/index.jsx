@@ -1,30 +1,93 @@
+import SEO from "@/components/seo/seo";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { services } from "@/constants/services";
 
-export default function ServicesPage() {
+export default function Services() {
+  const title = "Our Services | Kaalamithra AI Tech";
+  const description =
+    "AI solutions, full-stack development, and digital growth services tailored to your business needs.";
+
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <h1 className="text-4xl font-bold text-center mb-12">Our Services</h1>
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service.slug}
-              className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
+    <>
+      <SEO
+        title={title}
+        description={description}
+        canonical="/services"
+        jsonLdType="Service"
+        jsonLdProps={{
+          name: "Kaalamithra AI Tech - Services",
+          description: description,
+          url: "/services",
+          provider: {
+            "@type": "Organization",
+            name: "Kaalamithra AI Tech",
+            url: "https://kaalamithra-ai.com",
+          },
+        }}
+      />
+
+      <main className="max-w-6xl mx-auto px-6 py-20">
+        {/* Heading */}
+        <motion.h1
+          className="text-5xl md:text-6xl font-extrabold mb-12 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Our Services
+        </motion.h1>
+
+        {/* Services Grid */}
+        <section className="grid md:grid-cols-3 gap-8 mb-20">
+          {[
+            {
+              title: "AI Solutions",
+              desc: "Custom AI models and automation tailored to your business.",
+            },
+            {
+              title: "Full-Stack Development",
+              desc: "Modern web and mobile applications that scale seamlessly.",
+            },
+            {
+              title: "Digital Growth",
+              desc: "Strategies and tools to accelerate your online presence.",
+            },
+          ].map((service, i) => (
+            <motion.div
+              key={service.title}
+              className="p-6 rounded-xl shadow bg-white hover:shadow-lg transition"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
             >
-              <h2 className="text-xl font-semibold mb-2">{service.title}</h2>
-              <p className="text-gray-700 mb-4">{service.description}</p>
-              <Link
-                href={`/services/${service.slug}`}
-                className="text-blue-600 font-medium hover:underline focus-visible:underline focus-visible:outline-none"
-                aria-label={`Learn more about ${service.title}`}
-              >
-                Learn more →
-              </Link>
-            </div>
+              <h2 className="text-xl md:text-2xl font-semibold mb-3">
+                {service.title}
+              </h2>
+              <p className="text-base text-gray-700">{service.desc}</p>
+            </motion.div>
           ))}
-        </div>
-      </div>
-    </section>
+        </section>
+
+        {/* CTA */}
+        <section className="text-center">
+          <motion.h2
+            className="text-2xl md:text-3xl font-semibold mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            Ready to build the future with us?
+          </motion.h2>
+          <Link
+            href="/contact"
+            className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+            aria-label="Start your project"
+          >
+            Start Your Project
+          </Link>
+        </section>
+      </main>
+    </>
   );
 }

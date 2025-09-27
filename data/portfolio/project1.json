@@ -1,5 +1,8 @@
 {
   "slug": "project-1",
   "title": "AI Automation Platform",
-  "summary": "Built an AI-driven automation tool to streamline workflows."
+  "summary": "Built an AI-driven automation tool to streamline workflows.",
+  "image": "/images/og-default.png",
+  "description": "We built a real-time analytics dashboard with AI-powered forecasting and interactive visualizations.",
+  "result": "Increased efficiency by 35% and reduced reporting time by 70%."
 }
