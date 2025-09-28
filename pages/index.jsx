@@ -25,7 +25,7 @@ export default function HomePage() {
         }}
       />
 
-      <main className="max-w-6xl mx-auto px-6">
+      <main id="main-content" className="max-w-6xl mx-auto px-6">
         {/* Hero Section */}
         <section className="py-24 text-center">
           <motion.h1
@@ -37,7 +37,7 @@ export default function HomePage() {
             Welcome to <span className="text-blue-600">Kaalamithra AI Tech</span>
           </motion.h1>
           <motion.p
-            className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto mb-10"
+            className="text-base md:text-lg text-gray-800 max-w-3xl mx-auto mb-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -48,15 +48,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/services"
-              className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 shadow transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-              aria-label="Explore services"
+              className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 shadow transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
               Explore Services
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 rounded-lg font-medium border border-blue-600 text-blue-600 hover:bg-blue-50 shadow transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-              aria-label="Get in touch"
+              className="px-6 py-3 rounded-lg font-medium border border-blue-600 text-blue-700 hover:bg-blue-50 shadow transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
               Get in Touch
             </Link>
@@ -94,7 +92,7 @@ export default function HomePage() {
                 <h3 className="text-xl font-semibold mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-base text-gray-700">{feature.desc}</p>
+                <p className="text-base text-gray-800">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -126,7 +124,7 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
               >
-                <p className="text-gray-700 italic mb-4 text-lg">“{t.quote}”</p>
+                <p className="text-gray-800 italic mb-4 text-lg">“{t.quote}”</p>
                 <footer className="text-sm font-medium text-gray-600">
                   — {t.author}
                 </footer>
@@ -147,8 +145,7 @@ export default function HomePage() {
           </motion.h2>
           <Link
             href="/contact"
-            className="px-8 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 shadow transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-            aria-label="Start your project"
+            className="px-8 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 shadow transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
             Contact Us
           </Link>

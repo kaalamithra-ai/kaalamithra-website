@@ -49,7 +49,7 @@ export default function PortfolioPage() {
         }}
       />
 
-      <main className="max-w-6xl mx-auto px-6 py-20">
+      <main id="main-content" className="max-w-6xl mx-auto px-6 py-20">
         {/* Hero */}
         <motion.h1
           className="text-5xl md:text-6xl font-extrabold mb-8 text-center"
@@ -60,7 +60,7 @@ export default function PortfolioPage() {
           Our Portfolio
         </motion.h1>
         <motion.p
-          className="text-lg text-gray-700 mb-16 text-center max-w-2xl mx-auto"
+          className="text-lg text-gray-800 mb-16 text-center max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -70,7 +70,8 @@ export default function PortfolioPage() {
         </motion.p>
 
         {/* Projects Grid */}
-        <section className="grid md:grid-cols-3 gap-8 mb-20">
+        <section className="grid md:grid-cols-3 gap-8 mb-20" aria-label="Portfolio projects">
+          <h2 className="sr-only">Featured projects</h2>
           {projects.map((project, i) => (
             <motion.div
               key={project.title}
@@ -80,11 +81,11 @@ export default function PortfolioPage() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <h2 className="text-xl font-semibold mb-3">{project.title}</h2>
-              <p className="text-base text-gray-700 mb-4">{project.summary}</p>
+              <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
+              <p className="text-base text-gray-800 mb-4">{project.summary}</p>
               <Link
                 href={project.link}
-                className="text-blue-600 hover:text-blue-800 font-medium transition"
+                className="text-blue-700 hover:text-blue-900 font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
               >
                 View Case Study →
               </Link>
@@ -104,8 +105,7 @@ export default function PortfolioPage() {
           </motion.h2>
           <Link
             href="/contact"
-            className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-            aria-label="Start your project"
+            className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
             Let’s Work Together
           </Link>

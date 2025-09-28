@@ -26,7 +26,7 @@ export default function AboutPage() {
         }}
       />
 
-      <main className="max-w-6xl mx-auto px-6 py-20">
+      <main id="main-content" className="max-w-6xl mx-auto px-6 py-20">
         {/* Heading */}
         <motion.h1
           className="text-5xl md:text-6xl font-extrabold mb-8 text-center"
@@ -39,7 +39,7 @@ export default function AboutPage() {
 
         {/* Intro Paragraph */}
         <motion.p
-          className="text-base md:text-lg text-gray-700 text-center max-w-3xl mx-auto mb-12"
+          className="text-base md:text-lg text-gray-800 text-center max-w-3xl mx-auto mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -75,14 +75,14 @@ export default function AboutPage() {
               transition={{ delay: i * 0.1 }}
             >
               <h2 className="text-xl font-semibold mb-2">{value.title}</h2>
-              <p className="text-base text-gray-700">{value.desc}</p>
+              <p className="text-base text-gray-800">{value.desc}</p>
             </motion.div>
           ))}
         </section>
 
         {/* Team Statement */}
         <motion.p
-          className="text-base md:text-lg text-gray-700 text-center max-w-4xl mx-auto mt-16"
+          className="text-base md:text-lg text-gray-800 text-center max-w-4xl mx-auto mt-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

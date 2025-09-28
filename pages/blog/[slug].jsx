@@ -57,7 +57,7 @@ export default function BlogPost() {
 
         {/* Meta info */}
         <motion.p
-          className="text-sm text-gray-500 mb-8"
+          className="text-sm text-gray-600 mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -67,7 +67,7 @@ export default function BlogPost() {
 
         {/* Blog content */}
         <motion.div
-          className="prose prose-lg text-gray-700"
+          className="prose prose-lg text-gray-800"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}

@@ -4,7 +4,11 @@ import Footer from "@/components/layout/Footer";
 const PageLayout = ({ children }) => (
   <>
     <Header />
-    <main className="pt-16 min-h-screen flex flex-col">
+    <main
+      id="main-content"
+      className="pt-16 min-h-screen flex flex-col"
+      role="main"
+    >
       {children}
     </main>
     <Footer />

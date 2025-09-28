@@ -26,7 +26,7 @@ export default function Services() {
         }}
       />
 
-      <main className="max-w-6xl mx-auto px-6 py-20">
+      <main id="main-content" className="max-w-6xl mx-auto px-6 py-20">
         {/* Heading */}
         <motion.h1
           className="text-5xl md:text-6xl font-extrabold mb-12 text-center"
@@ -38,7 +38,8 @@ export default function Services() {
         </motion.h1>
 
         {/* Services Grid */}
-        <section className="grid md:grid-cols-3 gap-8 mb-20">
+        <section className="grid md:grid-cols-3 gap-8 mb-20" aria-label="Service categories">
+          <h2 className="sr-only">Service categories</h2>
           {[
             {
               title: "AI Solutions",
@@ -61,10 +62,10 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <h2 className="text-xl md:text-2xl font-semibold mb-3">
+              <h3 className="text-xl md:text-2xl font-semibold mb-3">
                 {service.title}
-              </h2>
-              <p className="text-base text-gray-700">{service.desc}</p>
+              </h3>
+              <p className="text-base text-gray-800">{service.desc}</p>
             </motion.div>
           ))}
         </section>
@@ -81,8 +82,7 @@ export default function Services() {
           </motion.h2>
           <Link
             href="/contact"
-            className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-            aria-label="Start your project"
+            className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           >
             Start Your Project
           </Link>

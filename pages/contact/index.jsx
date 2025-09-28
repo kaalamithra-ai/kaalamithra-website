@@ -45,9 +45,10 @@ export default function ContactPage() {
         jsonLd={contactJsonLd}
       />
 
-      <main className="max-w-6xl mx-auto px-6 py-20">
+      <main id="main-content" className="max-w-6xl mx-auto px-6 py-20">
         {/* Heading */}
         <motion.h1
+          id="contact-heading"
           className="text-5xl md:text-6xl font-extrabold mb-6 text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,7 +57,7 @@ export default function ContactPage() {
           Contact Us
         </motion.h1>
         <motion.p
-          className="text-base md:text-lg text-gray-700 text-center max-w-2xl mx-auto mb-12"
+          className="text-base md:text-lg text-gray-800 text-center max-w-2xl mx-auto mb-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -71,6 +72,7 @@ export default function ContactPage() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          aria-labelledby="contact-heading"
         >
           <motion.div custom={0} variants={fieldVariants}>
             <label
@@ -82,9 +84,8 @@ export default function ContactPage() {
             <input
               id="name"
               type="text"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               placeholder="Your name"
-              aria-label="Your name"
               required
             />
           </motion.div>
@@ -99,9 +100,8 @@ export default function ContactPage() {
             <input
               id="email"
               type="email"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               placeholder="you@example.com"
-              aria-label="Your email address"
               required
             />
           </motion.div>
@@ -115,10 +115,9 @@ export default function ContactPage() {
             </label>
             <textarea
               id="message"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-600 focus:outline-none"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
               rows="4"
               placeholder="Your message"
-              aria-label="Your message"
               required
             ></textarea>
           </motion.div>
@@ -130,8 +129,7 @@ export default function ContactPage() {
           >
             <motion.button
               type="submit"
-              className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white shadow hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-              aria-label="Send message"
+              className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white shadow hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

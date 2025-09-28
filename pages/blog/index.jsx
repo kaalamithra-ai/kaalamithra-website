@@ -46,7 +46,7 @@ export default function BlogPage() {
         }}
       />
 
-      <main className="max-w-6xl mx-auto px-6 py-20">
+      <main id="main-content" className="max-w-6xl mx-auto px-6 py-20">
         {/* Hero */}
         <motion.h1
           className="text-5xl md:text-6xl font-extrabold mb-8 text-center"
@@ -57,7 +57,7 @@ export default function BlogPage() {
           Our Blog
         </motion.h1>
         <motion.p
-          className="text-lg text-gray-700 mb-16 text-center max-w-2xl mx-auto"
+          className="text-lg text-gray-800 mb-16 text-center max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -67,7 +67,8 @@ export default function BlogPage() {
         </motion.p>
 
         {/* Blog posts grid */}
-        <section className="grid md:grid-cols-3 gap-8">
+        <section className="grid md:grid-cols-3 gap-8" aria-label="Blog posts">
+          <h2 className="sr-only">Latest blog posts</h2>
           {posts.map((post, i) => (
             <motion.div
               key={post.slug}
@@ -77,11 +78,11 @@ export default function BlogPage() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <h2 className="text-xl font-semibold mb-3">{post.title}</h2>
-              <p className="text-base text-gray-700 mb-4">{post.excerpt}</p>
+              <h3 className="text-xl font-semibold mb-3">{post.title}</h3>
+              <p className="text-base text-gray-800 mb-4">{post.excerpt}</p>
               <Link
                 href={`/blog/${post.slug}`}
-                className="text-blue-600 hover:text-blue-800 font-medium transition"
+                className="text-blue-700 hover:text-blue-900 font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
               >
                 Read More →
               </Link>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import SEO from "@/components/seo/seo";
 import defaultSEOConfig from "@/seo.config";
@@ -17,7 +18,7 @@ export default function PortfolioDetail() {
     return (
       <div className="max-w-3xl mx-auto py-20 text-center">
         <h1 className="text-2xl font-bold mb-4">Case study not found</h1>
-        <p className="text-gray-700">
+        <p className="text-gray-800">
           Please check the URL or return to the portfolio page.
         </p>
       </div>
@@ -73,7 +74,7 @@ export default function PortfolioDetail() {
 
           {/* Description */}
           <motion.p
-            className="text-gray-700 text-lg mb-8"
+            className="text-gray-800 text-lg mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -90,7 +91,7 @@ export default function PortfolioDetail() {
               transition={{ delay: 0.3 }}
             >
               <h2 className="text-2xl font-semibold mb-2">Results</h2>
-              <p className="text-gray-700">{project.result}</p>
+              <p className="text-gray-800">{project.result}</p>
             </motion.div>
           )}
 
@@ -101,13 +102,12 @@ export default function PortfolioDetail() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <a
+            <Link
               href="/contact"
-              className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
-              aria-label="Start your project link"
+              className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
               Start your project
-            </a>
+            </Link>
           </motion.div>
         </div>
       </section>

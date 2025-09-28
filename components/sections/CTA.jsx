@@ -29,7 +29,7 @@ const CTA = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.5 }}
           href="#contact"
-          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
         >
           Contact Us
         </motion.a>

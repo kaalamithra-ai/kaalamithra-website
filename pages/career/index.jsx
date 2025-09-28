@@ -10,6 +10,7 @@ export default function CareersPage() {
   // Example job postings structured data
   const jobPosts = [
     {
+      slug: "ai-engineer",
       title: "AI Engineer",
       description:
         "Design, train, and deploy AI/ML solutions for real-world business challenges.",
@@ -24,6 +25,7 @@ export default function CareersPage() {
       },
     },
     {
+      slug: "full-stack-developer",
       title: "Full-Stack Developer",
       description:
         "Build scalable applications using Next.js, Node.js, and cloud platforms.",
@@ -38,6 +40,7 @@ export default function CareersPage() {
       },
     },
     {
+      slug: "uiux-designer",
       title: "UI/UX Designer",
       description:
         "Design user-centered interfaces for web and mobile applications.",
@@ -78,7 +81,7 @@ export default function CareersPage() {
         jsonLdProps={jsonLdData[0]} // ✅ one JobPosting for Lighthouse
       />
 
-      <main className="max-w-6xl mx-auto px-6 py-20">
+      <main id="main-content" className="max-w-6xl mx-auto px-6 py-20">
         {/* Hero */}
         <motion.h1
           className="text-5xl md:text-6xl font-extrabold mb-8 text-center"
@@ -89,7 +92,7 @@ export default function CareersPage() {
           Careers
         </motion.h1>
         <motion.p
-          className="text-lg text-gray-700 mb-16 text-center max-w-2xl mx-auto"
+          className="text-lg text-gray-800 mb-16 text-center max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -99,7 +102,8 @@ export default function CareersPage() {
         </motion.p>
 
         {/* Job listings */}
-        <section className="grid md:grid-cols-3 gap-8">
+        <section className="grid md:grid-cols-3 gap-8" aria-label="Open positions">
+          <h2 className="sr-only">Open positions</h2>
           {jobPosts.map((job, i) => (
             <motion.div
               key={i}
@@ -109,14 +113,14 @@ export default function CareersPage() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <h2 className="text-xl font-semibold mb-3">{job.title}</h2>
-              <p className="text-base text-gray-700 mb-4">{job.description}</p>
-              <p className="text-sm text-gray-500 mb-4">
+              <h3 className="text-xl font-semibold mb-3">{job.title}</h3>
+              <p className="text-base text-gray-800 mb-4">{job.description}</p>
+              <p className="text-sm text-gray-600 mb-4">
                 Remote | Full-time
               </p>
               <Link
-                href="#"
-                className="px-6 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                href={`/career/${job.slug}`}
+                className="px-6 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
                 View details →
               </Link>
