@@ -12,7 +12,7 @@ export default function HomePage() {
       <SEO
         title={title}
         description={description}
-        canonical="/" // ✅ relative; seo.jsx builds absolute
+        canonical="/"
         jsonLdType="Organization"
         jsonLdProps={{
           title: "Kaalamithra AI Tech",
@@ -26,8 +26,8 @@ export default function HomePage() {
       />
 
       <main id="main-content" className="max-w-6xl mx-auto px-6">
-        {/* Hero Section */}
-        <section className="py-24 text-center">
+        {/* Hero Section (treat as About Us for scroll-spy) */}
+        <section id="about-us" className="py-24 text-center">
           <motion.h1
             className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
@@ -61,8 +61,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-24">
+        {/* Features / Services Section */}
+        <section id="services" className="py-24">
           <h2 className="text-2xl md:text-3xl font-semibold text-center mb-14">
             Our Core Capabilities
           </h2>
@@ -83,11 +83,12 @@ export default function HomePage() {
             ].map((feature, i) => (
               <motion.div
                 key={feature.title}
-                className="p-8 rounded-xl shadow bg-white hover:shadow-lg transition"
+                className="p-8 rounded-xl shadow bg-white hover:shadow-lg transition-transform duration-200 transform-gpu will-change-transform"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
+                whileHover={{ y: -8, scale: 1.02 }}
               >
                 <h3 className="text-xl font-semibold mb-3">
                   {feature.title}
@@ -99,7 +100,7 @@ export default function HomePage() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="py-24 bg-gray-50">
+        <section id="testimonials" className="py-24 bg-gray-50">
           <h2 className="text-2xl md:text-3xl font-semibold text-center mb-14">
             What Our Clients Say
           </h2>
@@ -118,11 +119,12 @@ export default function HomePage() {
             ].map((t, i) => (
               <motion.blockquote
                 key={i}
-                className="p-8 bg-white rounded-xl shadow hover:shadow-lg transition"
+                className="p-8 bg-white rounded-xl shadow hover:shadow-lg transition-transform duration-200 transform-gpu will-change-transform"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
+                whileHover={{ y: -8, scale: 1.02 }}
               >
                 <p className="text-gray-800 italic mb-4 text-lg">“{t.quote}”</p>
                 <footer className="text-sm font-medium text-gray-600">
@@ -133,8 +135,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-24 text-center">
+        {/* CTA Section (map to contact for scroll-spy) */}
+        <section id="contact" className="py-24 text-center">
           <motion.h2
             className="text-2xl md:text-3xl font-semibold mb-8"
             initial={{ opacity: 0, y: 20 }}

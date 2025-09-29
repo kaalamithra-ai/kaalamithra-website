@@ -4,6 +4,7 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <section
+      id="hero"
       className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center"
       aria-label="Hero"
     >
@@ -16,6 +17,7 @@ const Hero = () => {
         >
           We Build AI-Powered Future-Ready Solutions
         </motion.h2>
+
         <motion.p
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -25,6 +27,7 @@ const Hero = () => {
           Custom AI tools, full-stack development, and digital growth strategies
           to transform your business.
         </motion.p>
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -36,47 +39,26 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
           >
-<<<<<<< ours
             <Link
               href="/contact"
-<<<<<<< ours
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-=======
               aria-label="Start a Project"
-              className="inline-block px-4 py-3 md:px-4 md:py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
->>>>>>> theirs
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
               Start a Project
-=======
-            <Link href="/contact" aria-label="Start a Project">
-              <span className="px-6 py-3 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition cursor-pointer">
-                Start a Project
-              </span>
->>>>>>> theirs
             </Link>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.5 }}
           >
-<<<<<<< ours
             <Link
               href="/portfolio"
-<<<<<<< ours
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-blue-600 text-blue-700 hover:bg-blue-50 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-=======
               aria-label="View Portfolio"
-              className="inline-block px-4 py-3 md:px-4 md:py-2 rounded-lg font-medium border border-blue-600 text-blue-600 hover:bg-blue-50 transition cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
->>>>>>> theirs
+              className="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium border border-blue-600 text-blue-600 hover:bg-blue-50 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
               View Portfolio
-=======
-            <Link href="/portfolio" aria-label="View Portfolio">
-              <span className="px-6 py-3 rounded-lg font-medium border border-blue-600 text-blue-600 hover:bg-blue-50 transition cursor-pointer">
-                View Portfolio
-              </span>
->>>>>>> theirs
             </Link>
           </motion.div>
         </motion.div>

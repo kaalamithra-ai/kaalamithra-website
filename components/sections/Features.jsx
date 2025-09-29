@@ -20,8 +20,21 @@ export default function Features() {
     },
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12 },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+  };
+
   return (
-    <section className="py-20 bg-white" aria-label="Features">
+    <section id="services" className="py-20 bg-white" aria-label="Features">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -32,18 +45,28 @@ export default function Features() {
         >
           Our Core Services
         </motion.h2>
-        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
+
+        <motion.div
+          className="grid gap-10 sm:grid-cols-2 md:grid-cols-3"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+        >
           {features.map((item, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="p-6 rounded-xl shadow-sm hover:shadow-md transition"
+              variants={item}
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="p-6 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-lg
+                         transition-transform duration-200 transform-gpu will-change-transform"
             >
               <div className="flex justify-center mb-4">{item.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <h3 className="text-xl font-semibold mb-2 text-gray-900">{item.title}</h3>
               <p className="text-gray-600 text-base">{item.desc}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
