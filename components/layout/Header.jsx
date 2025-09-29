@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -11,28 +11,78 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+// tiny slug helper so "About Us" -> "about-us"
+const slug = (s) => s.toLowerCase().trim().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(null); // scroll-based for "/"
   const router = useRouter();
 
-  // Normalize path for active link checks (remove query/hash, trailing slash)
-  const pathname = (router.asPath || "/").split(/[?#]/)[0].replace(/\/+$/, "") || "/";
+  // Normalize path for route checks
+  const pathname = useMemo(
+    () => (router.asPath || "/").split(/[?#]/)[0].replace(/\/+$/, "") || "/",
+    [router.asPath]
+  );
 
-  // Close on Escape
+  // Close mobile menu on Escape
   useEffect(() => {
     if (!menuOpen) return;
-    const onKey = (e) => { if (e.key === "Escape") setMenuOpen(false); };
+    const onKey = (e) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
-  const isActive = (href) => {
+  // Scroll spy only on home page:
+  // observes <section id="..."> and updates activeSection with the most visible one.
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection(null);
+      return;
+    }
+
+    const sections = Array.from(document.querySelectorAll("section[id]"));
+    if (!sections.length) {
+      setActiveSection(null);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        // pick the most visible intersecting section
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target?.id) {
+          setActiveSection(visible.target.id);
+        }
+      },
+      {
+        // trigger when ~40% of a section is visible
+        threshold: [0.4, 0.6, 0.8],
+        rootMargin: "0px 0px -20% 0px",
+      }
+    );
+
+    sections.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [pathname]);
+
+  // Decide if a link is "active" (scroll-based on "/", route-based elsewhere)
+  const isActive = (href, label) => {
+    if (pathname === "/" && activeSection) {
+      const expected = slug(label); // expect section ids like "about-us", "services", etc.
+      return activeSection === expected;
+    }
     const target = href.replace(/\/+$/, "") || "/";
     return pathname === target;
   };
 
   return (
     <header className="sticky top-0 left-0 w-full bg-white shadow z-50" role="banner">
+      {/* Skip to content */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] rounded-md bg-blue-600 px-4 py-2 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
@@ -52,7 +102,7 @@ export default function Header() {
         {/* Desktop nav */}
         <div className="hidden md:flex gap-x-6">
           {navLinks.map((link) => {
-            const active = isActive(link.href);
+            const active = isActive(link.href, link.label);
             return (
               <Link
                 key={link.href}
@@ -63,7 +113,7 @@ export default function Header() {
                 aria-current={active ? "page" : undefined}
               >
                 {link.label}
-                {active && <span className="sr-only"> (current)</span>}
+                {active && <span className="sr-only"> (current section)</span>}
               </Link>
             );
           })}
@@ -93,7 +143,7 @@ export default function Header() {
           aria-label="Mobile Primary"
         >
           {navLinks.map((link) => {
-            const active = isActive(link.href);
+            const active = isActive(link.href, link.label);
             return (
               <Link
                 key={link.href}
@@ -105,7 +155,7 @@ export default function Header() {
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
-                {active && <span className="sr-only"> (current)</span>}
+                {active && <span className="sr-only"> (current section)</span>}
               </Link>
             );
           })}
