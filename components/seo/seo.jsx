@@ -137,6 +137,14 @@ const SEO = ({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={absCanonical} />
+      <link rel="icon" href="/favicon.ico?v=3" />{/* ADD */}
+    
+     {/* App icons / PWA manifest (existing) */}
+      <link rel="icon" href="/icons/favicon.ico" sizes="any" />
+      <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+      <link rel="manifest" href="/icons/site.webmanifest" />
+      <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#0b5fff" />
+      <meta name="theme-color" content="#0b5fff" />
 
       {absImage && <meta property="og:image" content={absImage} />}
       <meta property="og:title" content={title} />
