@@ -34,7 +34,27 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            Welcome to <span className="text-blue-600">Kaalamithra AI Tech</span>
+             Welcome to{" "}
+<span
+  className="bg-clip-text text-transparent"
+  style={{
+    backgroundImage:
+      "linear-gradient(90deg, #09A4FF 0%, #1E7BFF 40%, #0F63FF 78%)",
+    WebkitTextFillColor: "transparent",
+  }}
+>
+  Kaalamithra
+</span>{" "}
+<span
+  className="bg-clip-text text-transparent"
+  style={{
+    backgroundImage:
+      "linear-gradient(90deg, #8E7CFF 0%, #FF7FA0 65%, #E6425E 100%)",
+    WebkitTextFillColor: "transparent",
+  }}
+>
+  AI Tech
+</span>
           </motion.h1>
           <motion.p
             className="text-base md:text-lg text-gray-800 max-w-3xl mx-auto mb-10"
