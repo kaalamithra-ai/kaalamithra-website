@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const navLinks = [
   { label: "About Us", href: "/about-us" },
@@ -93,12 +94,20 @@ export default function Header() {
       <nav className="flex justify-between items-center px-8 py-4" aria-label="Primary">
         <Link
           href="/"
-          className="font-extrabold text-xl text-blue-700 tracking-tight leading-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
           aria-label="Kaalamithra AI Tech home"
+          className="inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
         >
-          KAALAMITHRA AI TECH
+          <Image
+            src="/logo.png"          // if PNG, change to "/logo.png"
+            alt="Kaalamithra AI Tech"
+            width={160}              // intrinsic size prevents layout shift
+            height={40}
+            priority                 // logo loads early
+            className="h-10 w-auto"
+          />
+          <span className="sr-only">Kaalamithra AI Tech</span>
         </Link>
-
+        
         {/* Desktop nav */}
         <div className="hidden md:flex gap-x-6">
           {navLinks.map((link) => {
